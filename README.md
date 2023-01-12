@@ -1,5 +1,5 @@
 # Midyear-Silly
-Tyler Chin
-Henry Choi
-Brendon Wan
-Stephen Yoon
+Tyler Chin, 
+Henry Choi, 
+Brendon Wan, 
+Stephen Yoon, 
