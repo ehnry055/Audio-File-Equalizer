@@ -2,4 +2,4 @@
 Tyler Chin, 
 Henry Choi, 
 Brendon Wan, 
-Stephen Yoon, 
+Stephen Yoon
