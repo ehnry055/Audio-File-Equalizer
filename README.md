@@ -1,4 +1,4 @@
-# Midyear-Silly
+# AudioFileEqualizer
 Tyler Chin, 
 Henry Choi, 
 Brendon Wan, 
