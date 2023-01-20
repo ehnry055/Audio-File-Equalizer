@@ -17,7 +17,7 @@ function setup() {
   angleMode(DEGREES); // Change the mode to DEGREES
   buttton = createButton('Toggle Play');
   buttton.mousePressed(toggleSong);
-  song.play();  
+  song.play();
   fft = new p5.FFT(0.9, 128);
   space_between_lines = width / 128;
   colorMode(HSB);
