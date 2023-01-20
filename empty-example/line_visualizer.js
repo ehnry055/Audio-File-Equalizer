@@ -1,13 +1,21 @@
 let song, buttton, fft, space_between_lines;
 
-function mouseClicked() { // possibly change to space bar instead later
-  if(song.isPlaying()) {
-    song.pause();
-  } else {
-    song.play();
+function keyPressed() {
+  if (keyCode === 32) {
+    if(song.isPlaying()) {
+      song.pause();
+    } else {
+      song.play();
+    }
   }
-}
 
+  while (keyIsDown(39)) { // right arrow
+    
+  }
+  while (keyIsDown(37)) { // left arrow 
+    
+}
+}
 function preload() {
   song = loadSound('../music/Mood.mp3');
 }
