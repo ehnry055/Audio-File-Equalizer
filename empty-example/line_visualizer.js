@@ -1,4 +1,5 @@
-let song, buttton, fft, space_between_lines;
+
+let song, fft, space_between_lines;
 
 function mouseClicked() { // possibly change to space bar instead later
   if(song.isPlaying()) {
