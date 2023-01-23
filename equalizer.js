@@ -1,6 +1,6 @@
 let soundFile, reverb;
 function preload() {
-  soundFile = loadSound('assets/Damscray_DancingTiger.mp3');
+  soundFile = loadSound('music/Mood.mp3');
 }
 
 function setup() {
