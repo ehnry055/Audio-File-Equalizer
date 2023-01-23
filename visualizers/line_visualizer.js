@@ -1,4 +1,5 @@
-let song, buttton, fft, space_between_lines;
+
+let song, fft, space_between_lines;
 
 function keyPressed() {
   if (keyCode === 32) {
