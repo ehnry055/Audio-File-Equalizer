@@ -10,12 +10,13 @@ function keyPressed() {
     }
   }
 
-  while (keyIsDown(39)) { // right arrow
-    
+  if (keyIsDown(39)) { // right arrow
+    song.speed(2);
   }
-  while (keyIsDown(37)) { // left arrow 
-    
-}
+  if (keyIsDown(37)) { // left arrow 
+    song.speed(-2);
+  }
+  song.speed(1);
 }
 function preload() {
   song = loadSound('../music/Mood.mp3');
