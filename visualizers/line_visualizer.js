@@ -10,16 +10,23 @@ function keyPressed() {
     }
   }
 
-  if (keyIsDown(39)) { // right arrow
-    song.speed(2);
+  if (keyIsDown(RIGHT_ARROW)) { // right arrow
+    jumpSong();
   }
-  if (keyIsDown(37)) { // left arrow 
-    song.speed(-2);
+  if (keyIsDown(LEFT_ARROW)) { // left arrow 
+    backJumpSong();
   }
-  song.speed(1);
+}
+
+function jumpSong(){
+  song.jump(song.currentTime() + 3);
+}
+
+function backJumpSong(){
+  song.jump(song.currentTime() -3);
 }
 function preload() {
-  song = loadSound('../music/Mood.mp3');
+  song = loadSound('../music/wheres_the_confetti_.mp3');
 }
 
 function setup() {
