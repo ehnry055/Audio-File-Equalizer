@@ -1,27 +1,26 @@
-let soundFile, reverb;
-function preload() {
-  soundFile = loadSound('music/Mood.mp3');
-}
+let song, reverb;
 
 function setup() {
-  let cnv = createCanvas(500, 500);
+  createCanvas(200, 200);
+  song = loadSound("music/Mood.mp3", loaded);
+}
+
+function loaded() {
+  button = createButton("Play");
+  button.mousePressed(togglePlaying);
 }
 
 function draw() {
-  if (!soundFile.isPlaying()) {
-    cnv.mousePressed(playSound);
-    console.log("PLAYING")
+  background(song.currentTime()*20);
+  
+}
+
+function togglePlaying() {
+  if (!song.isPlaying()) {
+    song.play();
+    button.html("Pause")
+  } else {
+    song.pause();
+    button.html("Play")
   }
-  else cnv.mousePressed(stopSound());
-  reverb = new p5.Reverb();
-  reverb.process(soundFile, 3, 2);
-  // Replace 3, 2 with variables controlled by text boxes with HTML
-}
-
-function playSound() {
-  soundFile.play();
-}
-
-function stopSound(){
-  soundFile.stop();
 }
