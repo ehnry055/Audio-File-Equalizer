@@ -3,13 +3,16 @@ let song, reverb;
 function setup() {
   createCanvas(200, 200);
   song = loadSound("music/Mood.mp3", loaded);
-  button = createButton("Play");
-  button.mousePressed(togglePlaying);
-  background(50);
 }
 
 function loaded() {
+  button = createButton("Play");
+  button.mousePressed(togglePlaying);
+}
 
+function draw() {
+  background(song.currentTime()*20);
+  
 }
 
 function togglePlaying() {
