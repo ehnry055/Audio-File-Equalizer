@@ -23,10 +23,15 @@
         <div class="top-bar-right">
           <ul class="menu simple vertical medium-horizontal">
             <li><a href="#">Home</a></li>
+            <li>
+              <a href="#">Visualizers</a>
+              <ul class="menu">
+                <li><a href="#">Item 1A</a></li>
+                <!-- ... -->
+              </ul>
+              <!--the future dropdown menu goes here-->
+            </li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Works</a></li>
-            <li><a href="#">News</a></li>
             <li><a href="#">Contact</a></li>
             <li>
               <button type="button" class="button hollow topbar-responsive-button">Categories</button>
@@ -74,16 +79,10 @@
     </div>
     </div>
 
-    <div class="row medium-8 large-7 columns">
-      <form>
-        <label for="upload" 
-               class="button">
-            Upload Your File
-        </label>
-        <input type="file" 
-               id="upload" 
-               class="show-for-sr"> 
-      </form>
+    <div class="row medium-8 large-7 columns"> 
+      <!-- add a new class to center the upload button-->
+      <label for="exampleFileUpload" class="button">Upload File</label>
+      <input type="file" id="exampleFileUpload" class="show-for-sr">
     </div>
   </body>
 </html>
