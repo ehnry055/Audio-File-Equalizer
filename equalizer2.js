@@ -1,13 +1,14 @@
-let soundFile, reverbFile, reverb;
+let play_button = document.querySelector('#play_button');
+let reverb_button = document.querySelector('#reverb_button');
+let song, reverb, speed_slider;
+let reverb_on = false;
+
 function preload() {
-  soundFile = loadSound('music/Mood.mp3');
-  reverbFile = loadSound('music/Mood.mp3');
+  song = loadSound('music/Mood.mp3');
 }
 
-function setup() {
-  let cnv = createCanvas(100, 100);
-  cnv.mousePressed(playSound);
-
+function setup() {  
+  speed_slider = createSlider(0.6, 1.5, 1, 0.1); // min, max, start, step
   reverb = new p5.Reverb();
   
   reverb.process(reverbFile, grabDuration(), grabRate());
@@ -49,6 +50,16 @@ function draw() {
 }
 
 function playSound() {
-  // soundFile.play();
-  reverbFile.play();
+  song.play();
+}
+
+function toggleReverb() {
+  if (!reverb_on) {
+    reverb_button.innerText = 'off';
+    reverb_on = true;
+  } else {
+    reverb_button.innerText = 'on';
+    reverb_on = false
+  }
+  
 }
