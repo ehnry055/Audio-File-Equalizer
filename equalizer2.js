@@ -1,32 +1,36 @@
-let soundFile, reverbFile, reverb;
+let play_button = document.querySelector('#play_button');
+let reverb_button = document.querySelector('#reverb_button');
+let song, reverb, speed_slider;
+let reverb_on = false;
+
 function preload() {
-  soundFile = loadSound('music/Mood.mp3');
-  reverbFile = loadSound('music/Mood.mp3');
+  song = loadSound('music/Mood.mp3');
 }
 
-function setup() {
-  let cnv = createCanvas(100, 100);
-  cnv.mousePressed(playSound);
-
+function setup() {  
+  speed_slider = createSlider(0.6, 1.5, 1, 0.1); // min, max, start, step
   reverb = new p5.Reverb();
-  // reverbFile.disconnect(); // so we'll only hear reverb...
-
-  // connect soundFile to reverb, process w/
-  // 3 second reverbTime, decayRate of 2%
-  reverb.process(reverbFile, 10, 3);
+  reverb.process(song, 10, 10); // 10 seconds duration, 10% decay
 }
 
 function draw() {
-  let dryWet = constrain(map(mouseX, 0, width, 0, 1), 0, 1);
-  // 1 = all reverb, 0 = no reverb
-  reverb.drywet(dryWet);
-
-  background(220);
-  text('tap to play', 10, 20);
-  text('dry/wet: ' + round(dryWet * 100) + '%', 10, height - 20);
+  let val = 0;
+  if (reverb_on) val = 1; 
+  reverb.drywet(val); // 1 is all reverb
+  song.rate(speed_slider.value());
 }
 
 function playSound() {
-  // soundFile.play();
-  reverbFile.play();
+  song.play();
+}
+
+function toggleReverb() {
+  if (!reverb_on) {
+    reverb_button.innerText = 'off';
+    reverb_on = true;
+  } else {
+    reverb_button.innerText = 'on';
+    reverb_on = false
+  }
+  
 }
