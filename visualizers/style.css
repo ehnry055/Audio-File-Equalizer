@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Source+Sans+Pro:200,300,400,600');
 
+
 .newbody, body {
   height: 100vh;
   flex-direction: column;
@@ -100,4 +101,8 @@
       margin: 10px;
     }
   }
+}
+
+#file-chosen{
+  margin-left: 0.3rem;
 }
