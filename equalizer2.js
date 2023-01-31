@@ -15,11 +15,12 @@ function setup() {
   reverb.amp(); 
   // Fix it not working, no clue why it doesn't work -- Maybe greyed out variables clue 
 }
+
 function grabDuration() {
   //Grabbing reverb duration from 
   const btn= document.getElementById("btn");
   btn.addEventListener('click', function(){
-  let dur = document.getElementById("reverbdur").value;
+  var dur = document.getElementById("reverbdur").value;
   });
   if (dur > song.duration()){
     dur = song.duration();
@@ -29,7 +30,7 @@ function grabDuration() {
 function grabRate(){
   const btn= document.getElementById("btn");
   btn.addEventListener('click', function(){
-  let rate = document.getElementById("reverbRate").value;
+  var rate = document.getElementById("reverbRate").value;
   });
   if (rate > 100){
     rate = 100;
