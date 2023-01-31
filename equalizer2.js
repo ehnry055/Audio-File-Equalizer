@@ -22,19 +22,37 @@ function setup() {
   speed_slider = createSlider(0.6, 1.5, 1, 0.1); // min, max, start, step
   pan_slider = createSlider(-1, 1, 0, 0.1)
   reverb = new p5.Reverb();
-  reverb.process(song, 10, 10); // 10 seconds duration, 10% decay
+  
+  reverb.process(reverbFile, grabDuration(), grabRate());
+  reverb.amp(); 
+  // Fix it not working, no clue why it doesn't work -- Maybe greyed out variables clue 
+}
+
+function grabDuration() {
+  //Grabbing reverb duration from 
+  const btn= document.getElementById("btn");
+  btn.addEventListener('click', function(){
+  var dur = document.getElementById("reverbdur").value;
+  });
+  if (dur > song.duration()){
+    dur = song.duration();
+  }
+  return dur;
+}
+function grabRate(){
+  const btn= document.getElementById("btn");
+  btn.addEventListener('click', function(){
+  var rate = document.getElementById("reverbRate").value;
+  });
+  if (rate > 100){
+    rate = 100;
+  }
+  return rate;
 }
 
 function draw() {
   let val = 0;
   if (reverb_on) val = 1; 
-  if (on_8d) {
-    setInterval(()=>{
-      song.pan()
-    }, 1000);
-  } else {
-    song.pan(pan_slider.value())
-  }
   reverb.drywet(val); // 1 is all reverb
   song.rate(speed_slider.value());
 }

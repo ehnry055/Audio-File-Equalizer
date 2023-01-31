@@ -1,5 +1,7 @@
 
 let song, fft, space_between_lines;
+let file = document.querySelector("file");
+let songfile = form.elements["song"];
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -26,7 +28,7 @@ function backJumpSong(){
   song.jump(song.currentTime() -3);
 }
 function preload() {
-  song = loadSound('../music/wheres_the_confetti_.mp3');
+  song = loadSound(songfile);
 }
 
 function setup() {
