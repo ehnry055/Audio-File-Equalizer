@@ -40,7 +40,7 @@ function grabDuration() {
   return dur;
 }
 function grabRate(){
-  const btn= document.getElementById("btn");
+  const btn= document.getElementById("btn1");
   btn.addEventListener('click', function(){
   var rate = document.getElementById("reverbRate").value;
   });
