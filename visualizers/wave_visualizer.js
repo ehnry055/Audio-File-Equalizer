@@ -1,4 +1,5 @@
 let song, fft;
+//import {selectedFile} from '../script.js';
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -12,7 +13,7 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound('../music/everglow.mp3');
+  song = loadSound(sessionStorage.getItem("song"));
 }
 
 function setup() {
