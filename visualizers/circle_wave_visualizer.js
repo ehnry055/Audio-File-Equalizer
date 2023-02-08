@@ -3,6 +3,7 @@ let song, fft;
 function keyPressed() {
   if (keyCode === 32) {
     if(song.isPlaying()) {
+      noFill();
       song.pause();
     } else {
       song.play();
