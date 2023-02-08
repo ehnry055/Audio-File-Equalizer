@@ -15,14 +15,14 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 1000); // make it window width and height later
+  createCanvas(windowWidth, windowHeight); // make it window width and height later
   song.play();  
   fft = new p5.FFT(.9);
 }
 
-function windowResized() {
-  resizeCanvas(window   , windowHeight);
-}
+//function windowResized() {
+  //resizeCanvas(window   , windowHeight);
+//}
 
 
 function draw() {
@@ -39,7 +39,7 @@ function draw() {
     let index = floor(map(i, 0, width, 0, wave.length))
 
     let x = i 
-    let y = wave[index] * 300 + height / 2
+    let y = wave[index] * 150 + height / 2
 
     vertex(x, y)
   }

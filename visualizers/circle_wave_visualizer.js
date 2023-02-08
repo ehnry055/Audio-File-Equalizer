@@ -11,11 +11,12 @@ function mouseClicked() { // possibly change to space bar instead later
 }
 
 function preload() {
-  song = loadSound('../music/everglow.mp3');
+  song = loadSound('../music/just_wanna_rock.mp3');
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // make it window width and height later
+  //cnv.style('display', 'block');
   angleMode(DEGREES)
   fft = new p5.FFT(.3);
 }
