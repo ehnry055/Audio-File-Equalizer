@@ -1,7 +1,4 @@
-
-let song, fft, space_between_lines;
-let file = document.querySelector("file");
-let songfile = form.elements["song"];
+alert()
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -18,6 +15,10 @@ function keyPressed() {
   if (keyIsDown(LEFT_ARROW)) { // left arrow 
     backJumpSong();
   }
+}
+
+function preload() {
+  song = loadSound(sessionStorage.getItem("song"));
 }
 
 function jumpSong(){

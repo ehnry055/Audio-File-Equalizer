@@ -7,10 +7,8 @@
 
     <link rel="stylesheet" href="visualizers/style.css">
     <link rel="stylesheet" href="css/foundation.css">
-    
   </head>
   <body>
-
     <!-- Start Top Bar -->
     <nav class="top-bar topbar-responsive">
       <div class="top-bar-title">
@@ -73,27 +71,25 @@
     </div>
     <div class="media">
     <div class="newlayer">
-        <p class ="newp">+ N. Mehta</p>
+        <p class ="newp">Equalizer</p>
     </div>
-    <img class ="newimg" src="https://images.unsplash.com/photo-1442965416224-f6a7eca980fa?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=" alt="" />
+    <a href="equilizer.html">
+      <img class ="newimg" src="https://images.unsplash.com/photo-1442965416224-f6a7eca980fa?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=" alt="" />
+    </a>
     </div>
     </div>
     <div class="row">
-      <div class="row header text-center">
-        <h9 class="subheader">Upload your audio file here</h9>
-        
-      </div>
       <div class="small-6 small-centered text-center columns"> 
         <!-- add a new class to center the upload button-->
-        <label for="FileUpload" class="success button">Upload File</label>
-        <input type="file" name="song" id="FileUpload" accept = "audio/*" class="show-for-sr">
-      </div>
-      <div class="row header text-center"> 
+        <br>
+        <!-- actual upload which is hidden -->
+        <input type="file" name="song" id="actual-btn" accept = "audio/*" class="show-for-sr" hidden/>
+        <label for="actual-btn" class="success button">Upload File</label>
+      </div> 
+      <div class="row header text-center">
         <span id="file-chosen">No file chosen</span>
       </div>
     </div>
+  <script src="script.js"></script>
   </body>
 </html>
-
-
-

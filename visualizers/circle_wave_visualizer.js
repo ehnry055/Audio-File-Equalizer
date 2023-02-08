@@ -1,8 +1,10 @@
 let song, fft;
+//import {selectedFile} from '../script.js';
 
 function keyPressed() {
   if (keyCode === 32) {
     if(song.isPlaying()) {
+      noFill();
       song.pause();
     } else {
       song.play();
@@ -12,11 +14,12 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound('../music/one_dance.mp3');
+  song = loadSound(sessionStorage.getItem("song"));
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // make it window width and height later
+  //cnv.style('display', 'block');
   angleMode(DEGREES)
   fft = new p5.FFT(.3);
 }
