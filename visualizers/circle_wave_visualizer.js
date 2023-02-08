@@ -4,6 +4,7 @@ let song, fft;
 function keyPressed() {
   if (keyCode === 32) {
     if(song.isPlaying()) {
+      noFill();
       song.pause();
     } else {
       song.play();
@@ -18,6 +19,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // make it window width and height later
+  //cnv.style('display', 'block');
   angleMode(DEGREES)
   fft = new p5.FFT(.3);
 }

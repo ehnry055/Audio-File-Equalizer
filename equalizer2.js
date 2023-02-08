@@ -1,9 +1,9 @@
 /* 
 1. reverb (works)
 2. speed (works)
-3. cut feature
-4. balancing (hard)
-5. pan 
+3. cut feature (failed)
+4. balancing (failed)
+5. pan (works)
 */
 
 let play_button = document.querySelector('#play_button');
@@ -13,6 +13,7 @@ let button_8d = document.querySelector("#button_8d");
 let song, reverb, speed_slider, pan_slider;
 let reverb_on = false;
 let on_8d = false;
+let pan_value = 0, pan_rate = 0.01;
 
 function preload() {
   song = loadSound('music/mood.mp3');
@@ -29,7 +30,11 @@ function draw() {
   let val = 0;
   if (reverb_on) val = 1; 
   if (on_8d) {
-    song.pan(-1);
+    pan_value += pan_rate;
+    if (pan_value >= 1.5) pan_rate = -0.01;
+    else if (pan_value <= -1.5) pan_rate = 0.01;
+    song.pan(pan_value);
+    pan_value += pan_rate;
   } else {
     song.pan(pan_slider.value())
   }
