@@ -10,8 +10,13 @@ let analyser;
 
 container.addEventListener('click', function() {
     //let audio1 = new Audio() // put something later
-    const audio1 = document.getElementById('audio1')
-    audio1.src = '../music/just_wanna_rock.mp3'
+    let audio1;
+    if (sessionStorage.getItem("song") != null) {
+        audio1 = loadSound(sessionStorage.getItem("song"));
+    } else {
+        audio1 = document.getElementById('audio1')
+        audio1.src = '../music/just_wanna_rock.mp3'
+    }
     const audioContext = new AudioContext();
     audio1.play();
     
