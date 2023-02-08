@@ -1,16 +1,34 @@
 
 let song, fft, space_between_lines;
+let file = document.querySelector("file");
+let songfile = form.elements["song"];
 
-function mouseClicked() { // possibly change to space bar instead later
-  if(song.isPlaying()) {
-    song.pause();
-  } else {
-    song.play();
+function keyPressed() {
+  if (keyCode === 32) {
+    if(song.isPlaying()) {
+      song.pause();
+    } else {
+      song.play();
+    }
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) { // right arrow
+    jumpSong();
+  }
+  if (keyIsDown(LEFT_ARROW)) { // left arrow 
+    backJumpSong();
   }
 }
 
+function jumpSong(){
+  song.jump(song.currentTime() + 3);
+}
+
+function backJumpSong(){
+  song.jump(song.currentTime() -3);
+}
 function preload() {
-  song = loadSound('../music/Mood.mp3');
+  song = loadSound(songfile);
 }
 
 function setup() {

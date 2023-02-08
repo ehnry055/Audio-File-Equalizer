@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loler</title>
+
+    <link rel="stylesheet" href="visualizers/style.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    
+  </head>
+  <body>
+
+    <!-- Start Top Bar -->
+    <nav class="top-bar topbar-responsive">
+      <div class="top-bar-title">
+        <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          <button class="menu-icon" type="button" data-toggle></button>
+        </span>
+        <a class="topbar-responsive-logo" href="#"><strong>Site Title</strong></a>
+      </div>
+      <div id="topbar-responsive" class="topbar-responsive-links">
+        <div class="top-bar-right">
+          <ul class="menu simple vertical medium-horizontal">
+            <li><a href="#">Home</a></li>
+            <li>
+              <a href="#">Visualizers</a>
+              <ul class="menu">
+                <li><a href="#">Item 1A</a></li>
+                <!-- ... -->
+              </ul>
+              <!--the future dropdown menu goes here-->
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li>
+              <button type="button" class="button hollow topbar-responsive-button">Categories</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    
+    <!-- End Top Bar -->
+
+    <div class="head">
+      <div class="row column text-center">
+        <h1>Audio File Editor and Equalizer</h1>
+        <h2 class="subheader">I want to call it Tortuga</h2>
+      </div>
+    </div>
+
+    <!-- We can now combine rows and columns when there's only one column in that row -->
+
+    <h1 class="newh1">VISUALIZERS</h1>
+    <div class="newwrapper">
+    <div class="media">
+    <div class="newlayer">
+        <p class ="newp">Line Visualizer</p>
+    </div>
+    <a href="visualizers/line_visualizer.html">
+        <img class ="newimg"src="https://media.discordapp.net/attachments/1059984264202031224/1065459936647184404/image.png?width=1094&height=780" alt="" />
+    </a>
+    </div>
+    <div class="media">
+    <div class="newlayer">
+        <p class ="newp">Circle Wave Visualizer</p>
+    </div>
+    <a href="visualizers/circle_wave_visualizer.html">
+        <img class ="newimg" src="https://images.unsplash.com/photo-1443397646383-16272048780e?dpr=1&auto=format&fit=crop&w=1199&h=899&q=80&cs=tinysrgb&crop=" alt="" />
+    </a>
+    </div>
+    <div class="media">
+    <div class="newlayer">
+        <p class ="newp">+ N. Mehta</p>
+    </div>
+    <img class ="newimg" src="https://images.unsplash.com/photo-1442965416224-f6a7eca980fa?dpr=1&auto=format&fit=crop&w=1199&h=799&q=80&cs=tinysrgb&crop=" alt="" />
+    </div>
+    </div>
+    <div class="row">
+      <div class="row header text-center">
+        <h9 class="subheader">Upload your audio file here</h9>
+        
+      </div>
+      <div class="small-6 small-centered text-center columns"> 
+        <!-- add a new class to center the upload button-->
+        <label for="FileUpload" class="success button">Upload File</label>
+        <input type="file" name="song" id="FileUpload" accept = "audio/*" class="show-for-sr">
+      </div>
+      <div class="row header text-center"> 
+        <span id="file-chosen">No file chosen</span>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+

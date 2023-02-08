@@ -1,12 +1,13 @@
 let song, fft;
 
-function mouseClicked() { // possibly change to space bar instead later
-  if(song.isPlaying()) {
-    song.pause();
-    noLoop()
-  } else {
-    song.play();
-    loop()
+function keyPressed() {
+  if (keyCode === 32) {
+    if(song.isPlaying()) {
+      song.pause();
+    } else {
+      song.play();
+      loop()
+    }
   }
 }
 
