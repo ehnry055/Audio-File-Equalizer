@@ -3,8 +3,11 @@
 
 .newbody, body {
   height: 100vh;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background: #E0E0E0;
   overflow: hidden;
 }
 
