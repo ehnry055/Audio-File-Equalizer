@@ -18,7 +18,11 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound(sessionStorage.getItem("song"));
+  if (sessionStorage.getItem("song") != null) {
+    song = loadSound(sessionStorage.getItem("song"));
+  } else {
+    song = loadSound('../music/ShakeItOff.mp3');
+  }
 }
 
 function jumpSong(){

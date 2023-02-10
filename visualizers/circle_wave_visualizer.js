@@ -14,7 +14,11 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound(sessionStorage.getItem("song"));
+  if (sessionStorage.getItem("song") != null) {
+    song = loadSoud(sessionStorage.getItem("song"));
+  } else {
+    song = loadSound('../music/everglow.mp3');
+  }
 }
 
 function setup() {

@@ -10,7 +10,11 @@ function mouseClicked() { // possibly change to space bar instead later
 }
 
 function preload() {
-    song = loadSound('../music/everglow.mp3');
+    if (sessionStorage.getItem("song") != null) {
+        song = loadSoud(sessionStorage.getItem("song"));
+    } else {
+        song = loadSound('../music/everglow.mp3');
+    }
 }
 
 function setup() {
