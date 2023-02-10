@@ -14,7 +14,6 @@ let song, reverb, speed_slider, pan_slider;
 let reverb_on = false;
 let on_8d = false;
 let pan_value = 0, pan_rate = 0.01;
-let recorder;
 
 function preload() {
   song = loadSound('music/Mood.mp3');
@@ -25,7 +24,6 @@ function setup() {
   pan_slider = createSlider(-1, 1, 0, 0.1)
   reverb = new p5.Reverb();
   reverb.process(song, 10, 10); // 10 seconds duration, 10% decay
-  recorder = new MediaRecorder(song);
 }
 
 function draw() {
@@ -50,11 +48,9 @@ function draw() {
 function togglePlay() {
   if (!song.isPlaying()) {
     song.play();
-    recorder.start();
     play_button.innerText = "Stop";
   } else {
     song.pause();
-    recorder.stop();
     play_button.innerText = "Play";
   }
 }
