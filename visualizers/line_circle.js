@@ -10,15 +10,6 @@ function mouseClicked() { // possibly change to space bar instead later
 }
 
 
-function mouseClicked() { // possibly change to space bar instead later
-  if(song.isPlaying()) {
-    song.pause();
-    //noLoop()
-  } else {
-    song.play();
-    //loop()
-  }
-}
 
 
 function preload() {
