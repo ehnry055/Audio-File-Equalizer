@@ -13,6 +13,19 @@ function keyPressed() {
   }
 }
 
+
+function mouseClicked() { // possibly change to space bar instead later
+  if(song.isPlaying()) {
+    song.pause();
+    //noLoop()
+  } else {
+    song.play();
+    //loop()
+  }
+}
+
+
+
 function preload() {
   var str = localStorage.getItem("song");
   if (items === undefined || items === null || items.length === 0)

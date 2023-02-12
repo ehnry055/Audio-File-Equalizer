@@ -1,4 +1,4 @@
-alert()
+let song, buttton, fft, space_between_lines;
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -8,36 +8,49 @@ function keyPressed() {
       song.play();
     }
   }
-
-  if (keyIsDown(RIGHT_ARROW)) { // right arrow
-    jumpSong();
-  }
-  if (keyIsDown(LEFT_ARROW)) { // left arrow 
-    backJumpSong();
+}
+function mouseClicked() { // possibly change to space bar instead later
+  if(song.isPlaying()) {
+    song.pause();
+    //noLoop()
+  } else {
+    song.play();
+    //loop()
   }
 }
+
+
+// function rewind() {
+//   if (keyIsDown(RIGHT_ARROW)) { // right arrow
+//     jumpSong();
+//   }
+//   if (keyIsDown(LEFT_ARROW)) { // left arrow 
+//     backJumpSong();
+//   }
+// }
+
+// function preload() {
+//   //var str = localStorage.getItem("song");
+//   //if (items === undefined || items === null || items.length === 0)
+//   //{
+//     song = loadSound('../music/ShakeItOff.mp3')
+//   //}
+//   //else {
+//     //song = new Audio(str);
+//     //reader.readAsDataURL(song);
+//   //}
+// }
+
+// function jumpSong(){
+//   song.jump(song.currentTime() + 3);
+// }
+
+// function backJumpSong(){
+//   song.jump(song.currentTime() -3);
+// }
 
 function preload() {
-  var str = localStorage.getItem("song");
-  if (items === undefined || items === null || items.length === 0)
-  {
-    song = loadSound('../music/ShakeItOff.mp3')
-  }
-  else {
-    song = new Audio(str);
-    //reader.readAsDataURL(song);
-  }
-}
-
-function jumpSong(){
-  song.jump(song.currentTime() + 3);
-}
-
-function backJumpSong(){
-  song.jump(song.currentTime() -3);
-}
-function preload() {
-  song = loadSound(songfile);
+  song = loadSound('../music/ShakeItOff.mp3');
 }
 
 function setup() {
@@ -69,4 +82,3 @@ function draw() {
     // rect((width/2) - (i * space_between_lines), y, space_between_lines, height - y);
   }
 }
-
