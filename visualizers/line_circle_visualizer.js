@@ -10,9 +10,15 @@ let analyser;
 
 container.addEventListener('click', function() {
     //let audio1 = new Audio() // put something later
-    const audio1 = document.getElementById('audio1')
-    audio1.src = '../music/just_wanna_rock.mp3'
-    const audioContext = new AudioContext();
+    let audio1;
+    var str = localStorage.getItem("song");
+    if (items === undefined || items === null || items.length === 0)
+    {
+        audio1 = loadSound('../music/ShakeItOff.mp3');
+    }
+    else {
+        audio1 = new Audio(str);
+    }
     audio1.play();
     
     audioSource = audioContext.createMediaElementSource(audio1);

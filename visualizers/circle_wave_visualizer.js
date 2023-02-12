@@ -14,7 +14,15 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound(sessionStorage.getItem("song"));
+  var str = localStorage.getItem("song");
+  if (items === undefined || items === null || items.length === 0)
+  {
+    song = loadSound('../music/ShakeItOff.mp3')
+  }
+  else {
+    song = new Audio(str);
+    //reader.readAsDataURL(song);
+  }
 }
 
 function setup() {
