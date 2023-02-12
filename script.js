@@ -1,15 +1,18 @@
-var button = document.getElementById('actual-btn');
+var button = document.getElementById('actualbtn');
 var fileChosen = document.getElementById("file-chosen");
-var selectedFile = null;
+var selectedFile;
 var gallery = document.getElementById("gallery");
-var backup = loadSound('../music/everglow.mp3');;
+var backup = '../music/everglow.mp3';
+localStorage.setItem("song", "backup");
+
 
 button.addEventListener("change", function(){
   fileChosen.textContent = this.files[0].name;
   selectedFile = document.getElementById("input").files;
-  
-});
 
-gallery.addEventListener("change", function(){
-  sessionStorage.setItem("song", "selectedFile");
+  const reader = new FileReader();
+  reader.onload = function(){
+    var str = this.result;
+    localStorage.setItem("song", "str");
+  };
 });

@@ -18,10 +18,14 @@ function keyPressed() {
 }
 
 function preload() {
-  if (sessionStorage.getItem("song") != null) {
-    song = loadSound(sessionStorage.getItem("song"));
-  } else {
-    song = loadSound('../music/ShakeItOff.mp3');
+  var str = localStorage.getItem("song");
+  if (items === undefined || items === null || items.length === 0)
+  {
+    song = loadSound('../music/ShakeItOff.mp3')
+  }
+  else {
+    song = new Audio(str);
+    //reader.readAsDataURL(song);
   }
 }
 

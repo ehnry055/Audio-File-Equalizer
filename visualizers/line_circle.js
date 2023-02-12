@@ -10,12 +10,16 @@ function mouseClicked() { // possibly change to space bar instead later
 }
 
 function preload() {
-    if (sessionStorage.getItem("song") != null) {
-        song = loadSoud(sessionStorage.getItem("song"));
-    } else {
-        song = loadSound('../music/everglow.mp3');
+    var str = localStorage.getItem("song");
+    if (items === undefined || items === null || items.length === 0)
+    {
+      song = loadSound('../music/ShakeItOff.mp3')
     }
-}
+    else {
+      song = new Audio(str);
+      //reader.readAsDataURL(song);
+    }
+  }
 
 function setup() {
     var cnv = createCanvas(windowWidth, windowHeight);
