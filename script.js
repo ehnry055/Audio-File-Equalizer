@@ -2,8 +2,6 @@ var button = document.getElementById('actualbtn');
 var fileChosen = document.getElementById("file-chosen");
 var selectedFile;
 var gallery = document.getElementById("gallery");
-var backup = '../music/everglow.mp3';
-localStorage.setItem("song", "backup");
 
 
 button.addEventListener("change", function(){
