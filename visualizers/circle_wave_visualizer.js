@@ -32,7 +32,7 @@ function setup() {
 function draw() {
   background(27, 27, 27);
   // colorMode(HSB)
-  stroke(0, 255, 255)
+  stroke(255, 255, 255)
   strokeWeight(3)
   noFill()
 
