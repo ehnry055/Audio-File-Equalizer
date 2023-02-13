@@ -20,6 +20,7 @@ function preload() {
 }
 
 function setup() {
+  noCanvas();
   speed_slider = createSlider(0.6, 1.5, 1, 0.1); // min, max, start, step
   pan_slider = createSlider(-1, 1, 0, 0.1)
   reverb = new p5.Reverb();
@@ -77,5 +78,20 @@ function toggleReverb() {
 
 function saveSong() {
   console.log('saved');
+  // file = new Blob([song.getBlob()], song.getBlob(), {'type': 'audio/wav; codecs=MS_PCM'});
+  saveRecording('testing')
   // song.save("testing.mp3");
+}
+
+function saveRecording(recordingName) {
+  var a = document.createElement("a");
+  document.body.appendChild(a);
+  a.style = "display: none";
+  // var blob = readAsArrayBuffer(soudn).getBlob(recordingName);
+  var url = window.URL.createObjectURL(blob);
+  a.href = url;
+  a.download = recordingName;
+  a.click();
+  window.URL.revokeObjectURL(url);
+  document.body.removeChild(a);
 }
