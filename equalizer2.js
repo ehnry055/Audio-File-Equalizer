@@ -13,7 +13,7 @@ let loop = false;
 let pan_value = 0, pan_rate = 0.005; // for 8D audio
 
 function preload() {
-  song = loadSound('music/Mood.mp3');
+  song = loadSound('music/ShakeItOff.mp3');
 }
 
 function setup() {
