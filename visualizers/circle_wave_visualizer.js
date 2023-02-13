@@ -1,4 +1,4 @@
-let song, fft;
+let song, fft, songfile;
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -26,24 +26,26 @@ function mouseClicked() { // possibly change to space bar instead later
 
 
 
-   function preload() {
-    let request = indexedDB.open("songfile", 22);
-    request.onsuccess = (event) => {
-      db = event.target.result;
-      let tx = db.transaction("song", "readwrite").objectStore("song");
-      let req = tx.get(1);
-      req.onerror = (event) => {
-        console.warn("please add a song next time")
-      };
-      request.onsuccess = (event) => {
-        console.log(req);
-      };
-      song = loadSound(req);
-    }
-    request.onerror = (event) => {
-      song = loadSound("../music/ShakeItOff.mp3");
-    }
-  }
+function preload() {
+  // const request = indexedDB.open("songfile", 22);
+  // request.onsuccess = (event) => {
+  //   db = event.target.result;
+  //   let tx = db.transaction("song", "readwrite").objectStore("song");
+  //   let req = tx.get(1);
+  //   req.onerror = (event) => {
+  //     console.warn("please add a song next time")
+  //   }
+  //   req.onsuccess = (event) => {
+  //     console.log(req);
+  //     let filesong = URL.createObjectURL(req);
+  //     songfile = filesong;
+  //   }
+  // };
+  // request.onerror = (event) => {
+  //   songfile = ("../music/ShakeItOff.mp3");
+  // }
+  song = loadSound("../music/ShakeItOff.mp3");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // make it window width and height later
