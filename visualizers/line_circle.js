@@ -55,7 +55,7 @@ function draw() {
       var y = (r + 50) * cos(angle);
       
       line(0,0,x,y);
-      stroke(i/1.6,200,200);
+      stroke(i/1.5,200,200);
   }
   noStroke();
   colorMode(RGB);
