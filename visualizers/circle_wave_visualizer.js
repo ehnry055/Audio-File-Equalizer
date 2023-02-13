@@ -27,17 +27,17 @@ function mouseClicked() { // possibly change to space bar instead later
 
 
 function preload() {
-  //var str = localStorage.getItem("song");
-  //if (items === undefined || items === null || items.length === 0)
-  //{
-  //  song = loadSound('../music/ShakeItOff.mp3');
-  //}
-  //else {
-  //  song = new Audio(str);
-  //  song.play();
-    //reader.readAsDataURL(song);
-  //}
-  song = loadSound('../music/ShakeItOff.mp3');
+  var str = localStorage.getItem("song");
+  if (items === undefined || items === null || items.length === 0)
+  {
+    song = loadSound('../music/ShakeItOff.mp3');
+  }
+  else {
+    window.audio = new Audio();
+    window.audio.src = str;
+    reader.readAsDataURL(song);
+  }
+  song = loadSound(globalVariable.songfile);
 }
 
 function setup() {
