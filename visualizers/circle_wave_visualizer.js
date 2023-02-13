@@ -45,7 +45,10 @@ function preload() {
   // request.onerror = (event) => {
   //   songfile = ("../music/ShakeItOff.mp3");
   // }
-  song = loadSound("../music/ShakeItOff.mp3");
+  
+  btn = createFileInput((file)=>{
+    song = loadSound(file);
+  }); 
 }
 
 function setup() {

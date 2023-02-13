@@ -20,7 +20,10 @@ function preload() {
 //   //  song.play();
 //     //reader.readAsDataURL(song);
 //   //}
-  song = loadSound('../music/ShakeItOff.mp3');
+  btn = createFileInput((file)=>{
+    song = loadSound(file);
+  }); 
+  btn.position(0, 0);
 }
 
 function setup() {

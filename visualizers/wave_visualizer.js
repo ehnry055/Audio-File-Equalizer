@@ -13,7 +13,9 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound('../music/ShakeItOff.mp3');
+  btn = createFileInput((file)=>{
+    song = loadSound(file);
+  }); 
 }
 
 function setup() {

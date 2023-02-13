@@ -13,7 +13,9 @@ let loop = false;
 let pan_value = 0, pan_rate = 0.005; // for 8D audio
 
 function preload() {
-  song = loadSound('music/ShakeItOff.mp3');
+  btn = createFileInput((file)=>{
+    song = loadSound(file);
+  }); 
 }
 
 function setup() {
