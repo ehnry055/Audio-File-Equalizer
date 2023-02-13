@@ -63,7 +63,7 @@ function preload() {
 // }
 
 function preload() {
-  song = loadSound('../music/ShakeItOff.mp3');
+  song = loadSound('../music/everglow.mp3');
 }
 
 function setup() {
