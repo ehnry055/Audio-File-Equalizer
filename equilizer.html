@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body{
+            background: black;
+            
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="equilizer.css">
     <title>Document</title>
 </head>
 <body>  
+    <nav class="top-bar topbar-responsive">
+        <div class="top-bar-title">
+          <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+            <button class="menu-icon" type="button" data-toggle></button>
+          </span>
+          <a class="topbar-responsive-logo" href="#"><strong>Equalizer</strong></a>
+        </div>
+        <div id="topbar-responsive" class="topbar-responsive-links">
+          <div class="top-bar-right">
+            <ul class="menu simple vertical medium-horizontal">
+              <li><a href="index.html">Home</a></li>
+              <li>
+                <a id="gallery" href="visualizer_gallery.html">Visualizers</a>
+                <!--the future dropdown menu goes here-->
+              </li>
+              <li><a href="aout.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li>
+                <button type="button" class="button hollow topbar-responsive-button">Categories</button>
+                <a href="categories.html"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <h1>Audio File Equalizer</h1>
     <button id="play_button" onclick=togglePlay()>Play</button>
     <button id="reverb_button" onclick=toggleReverb()>on</button>
     <button id="save_button" onclick=saveSong()>Save</button>

@@ -20,8 +20,6 @@ function mouseClicked() { // possibly change to space bar instead later
 }
 
 
-
-
 function preload() {
   var str = localStorage.getItem("song");
   if (items === undefined || items === null || items.length === 0)
