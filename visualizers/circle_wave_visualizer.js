@@ -26,19 +26,24 @@ function mouseClicked() { // possibly change to space bar instead later
 
 
 
-function preload() {
-  var str = localStorage.getItem("song");
-  if (items === undefined || items === null || items.length === 0)
-  {
-    song = loadSound('../music/ShakeItOff.mp3');
+   function preload() {
+    let request = indexedDB.open("songfile", 22);
+    request.onsuccess = (event) => {
+      db = event.target.result;
+      let tx = db.transaction("song", "readwrite").objectStore("song");
+      let req = tx.get(1);
+      req.onerror = (event) => {
+        console.warn("please add a song next time")
+      };
+      request.onsuccess = (event) => {
+        console.log(req);
+      };
+      song = loadSound(req);
+    }
+    request.onerror = (event) => {
+      song = loadSound("../music/ShakeItOff.mp3");
+    }
   }
-  else {
-    window.audio = new Audio();
-    window.audio.src = str;
-    reader.readAsDataURL(song);
-  }
-  song = loadSound(globalVariable.songfile);
-}
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // make it window width and height later
