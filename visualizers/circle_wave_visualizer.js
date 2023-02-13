@@ -37,7 +37,8 @@ function preload() {
   //   }
   //   req.onsuccess = (event) => {
   //     console.log(req);
-  //     let filesong = URL.createObjectURL(req);
+  //     let filesong = new File([req]. "songfile",);
+  //     console.log(filesong);
   //     songfile = filesong;
   //   }
   // };

@@ -2991,6 +2991,7 @@ function () {
 
 
 function loadSound(path, callback, onerror, whileLoading) {
+
   if (window.location.origin.indexOf('file://') > -1 && window.cordova === 'undefined') {
     window.alert('This sketch may require a server to load external files. Please see http://bit.ly/1qcInwS');
   }
