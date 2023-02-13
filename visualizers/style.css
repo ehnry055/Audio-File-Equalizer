@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Inconsolata|Source+Sans+Pro:200,300,400,600');
 
 
-.newbody, body {
-  height: 100vh;
+.newbody {
+  height: 94vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #242424;
+  background: #FFFFFF ;
   overflow: hidden;
 }
 
