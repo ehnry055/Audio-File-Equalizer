@@ -1,19 +1,16 @@
-/* 
-1. reverb (works)
-2. speed (works)
-3. cut feature (failed)
-4. balancing (failed)
-5. pan (works)
-*/
-
 let play_button = document.querySelector('#play_button');
 let reverb_button = document.querySelector('#reverb_button');
 let save_button = document.querySelector("#save_button");
+let loop_button = document.querySelector('#loop_button');
+let restart_button = document.querySelector('#restart_button');
 let button_8d = document.querySelector("#button_8d");
-let song, reverb, speed_slider, pan_slider;
+let speed_slider = document.querySelector('#speed_slider');
+let pan_slider = document.querySelector('#pan_slider');
+let song, reverb;
 let reverb_on = false;
 let on_8d = false;
-let pan_value = 0, pan_rate = 0.01;
+let loop = false;
+let pan_value = 0, pan_rate = 0.005; // for 8D audio
 
 function preload() {
   song = loadSound('music/Mood.mp3');
@@ -21,8 +18,6 @@ function preload() {
 
 function setup() {
   noCanvas();
-  speed_slider = createSlider(0.6, 1.5, 1, 0.1); // min, max, start, step
-  pan_slider = createSlider(-1, 1, 0, 0.1)
   reverb = new p5.Reverb();
   reverb.process(song, 10, 10); // 10 seconds duration, 10% decay
 }
@@ -32,66 +27,63 @@ function draw() {
   if (reverb_on) val = 1; 
   if (on_8d) {
     pan_value += pan_rate;
-    if (pan_value >= 1.5) pan_rate = -0.01;
-    else if (pan_value <= -1.5) pan_rate = 0.01;
+    if (pan_value >= 1.5) pan_rate = -0.005;
+    else if (pan_value <= -1.5) pan_rate = 0.005;
     song.pan(pan_value);
     pan_value += pan_rate;
   } else {
-    song.pan(pan_slider.value())
+    song.pan(pan_slider.value)
   }
   reverb.drywet(val); // 1 is all reverb
-  song.rate(speed_slider.value());
-  song.onended(() => {
-    play_button.innerText = "Play";
+  song.rate(speed_slider.value);
+  song.onended(()=>{
+    if (loop) song.play();
+    else play_button.innerText = "PLAY";
   });
 }
 
 function togglePlay() {
   if (!song.isPlaying()) {
     song.play();
-    play_button.innerText = "Stop";
+    play_button.innerText = "STOP";
   } else {
     song.pause();
-    play_button.innerText = "Play";
+    play_button.innerText = "PLAY";
   }
 }
 
 function toggle8d() {
   if (!on_8d) {
     on_8d = true;
-    button_8d.innerText = 'off';
+    button_8d.innerText = 'OFF';
   } else {
     on_8d = false;
-    button_8d.innerText = 'on';
+    button_8d.innerText = '8D';
   }
+}
+
+function toggleLoop() {
+  if (!loop) {
+    loop = true;
+    loop_button.innerText = "DISABLE";
+  }
+  else {
+    loop = false;
+    loop_button.innerText = "LOOP";
+  }
+}
+
+function restart() {
+  song.playMode('restart');
+  song.play();
 }
 
 function toggleReverb() {
   if (!reverb_on) {
-    reverb_button.innerText = 'off';
+    reverb_button.innerText = 'OFF';
     reverb_on = true;
   } else {
-    reverb_button.innerText = 'on';
+    reverb_button.innerText = 'REVERB';
     reverb_on = false;
   }  
-}
-
-function saveSong() {
-  console.log('saved');
-  // file = new Blob([song.getBlob()], song.getBlob(), {'type': 'audio/wav; codecs=MS_PCM'});
-  saveRecording('testing')
-  // song.save("testing.mp3");
-}
-
-function saveRecording(recordingName) {
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style = "display: none";
-  // var blob = readAsArrayBuffer(soudn).getBlob(recordingName);
-  var url = window.URL.createObjectURL(blob);
-  a.href = url;
-  a.download = recordingName;
-  a.click();
-  window.URL.revokeObjectURL(url);
-  document.body.removeChild(a);
 }

@@ -4,7 +4,54 @@
     <style>
         body {
             background: black;
+            color: white;
         }
+        h1{
+          font-size: 60px;
+          color:rgb(239, 182, 77);
+          font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .slider-container{
+          color: white;
+        }
+        .slider {
+          margin: 15px;
+          appearance: none;
+          width: 40%;
+          height: 25px; 
+          background: #04a3ab; 
+          outline: none; 
+          opacity: 0.85; 
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+          border-radius: 15px;
+        }
+        #pan_slider {
+          background:#3ef84a;
+        }
+        .slider:hover {
+          opacity: 1; 
+        }
+        .slider::-webkit-slider-thumb {
+          -webkit-appearance: none; /* Override default look */
+          appearance: none;
+          width: 25px; /* Set a specific slider handle width */
+          height: 25px; /* Slider handle height */
+          background: #f6e81d; 
+          cursor: pointer; /* Cursor on hover */
+        }        .b{
+          background-color: rgb(4, 117, 198);
+          color: white;
+          margin: 3px;
+          width: 10%;
+          height: 35px;
+          font-size: 25px;
+          border-radius: 15px;
+        }
+        .b:hover{
+          background-color: lightskyblue;
+        }
+
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +59,23 @@
     <title>Equalizer</title>
 </head>
 <body>  
-    <h1>Audio File Equalizer</h1>
-    <button id="play_button" onclick=togglePlay()>Play</button>
-    <button id="reverb_button" onclick=toggleReverb()>on</button>
-    <button id="save_button" onclick=saveSong()>Save</button>
-    <button id="button_8d" onclick=toggle8d()>8D</button>
+    <center>
+      <a href="index.html"><h1>Audio File Equalizer</h1></a>
+      <div class="buttons">
+        <button id="play_button" onclick=togglePlay() class="b">PLAY</button><br>
+        <button id="reverb_button" onclick=toggleReverb() class="b">REVERB</button><br>
+        <button id="button_8d" onclick=toggle8d() class="b">8D</button><br>
+        <button id="loop_button" onclick=toggleLoop() class="b">LOOP</button><br>
+        <button id="restart_button" onclick=restart() class="b">RESTART</button><br>
+      </div>
+      <div class="slider_container">
+        <label>Speed: </label>
+        <input type="range" min="0.52" max="1.5" class="slider" id="speed_slider" step="0.01" value="1">
+        <br>
+        <label>Pan:</label>
+        <input type="range" min="-1" max="1" class="slider" id="pan_slider" step="0.01" value="0">
+      </div>
+    </center>
     <script src="p5.js"></script>
     <script src="addons/p5.sound.js"></script>
     <script src="equalizer2.js"></script>
