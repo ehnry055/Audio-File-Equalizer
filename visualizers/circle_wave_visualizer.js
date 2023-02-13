@@ -1,5 +1,4 @@
 let song, fft;
-//import {selectedFile} from '../script.js';
 
 function keyPressed() {
   if (keyCode === 32) {
@@ -13,12 +12,31 @@ function keyPressed() {
   }
 }
 
-function preload() {
-  if (sessionStorage.getItem("song") != null) {
-    song = loadSoud(sessionStorage.getItem("song"));
+
+function mouseClicked() { // possibly change to space bar instead later
+  if(song.isPlaying()) {
+    song.pause();
+    //noLoop()
   } else {
-    song = loadSound('../music/everglow.mp3');
+    song.play();
+    //loop()
   }
+}
+
+
+
+function preload() {
+  //var str = localStorage.getItem("song");
+  //if (items === undefined || items === null || items.length === 0)
+  //{
+  //  song = loadSound('../music/ShakeItOff.mp3');
+  //}
+  //else {
+  //  song = new Audio(str);
+  //  song.play();
+    //reader.readAsDataURL(song);
+  //}
+  song = loadSound('../music/ShakeItOff.mp3');
 }
 
 function setup() {
@@ -36,7 +54,7 @@ function setup() {
 function draw() {
   background(27, 27, 27);
   // colorMode(HSB)
-  stroke(0, 255, 255)
+  stroke(255, 255, 255)
   strokeWeight(3)
   noFill()
 
