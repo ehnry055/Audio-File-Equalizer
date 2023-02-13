@@ -9,74 +9,57 @@ function mouseClicked() { // possibly change to space bar instead later
     }
 }
 
-
-
-
 function preload() {
-  //var str = localStorage.getItem("song");
-  //if (items === undefined || items === null || items.length === 0)
-  //{
-  //  song = loadSound('../music/ShakeItOff.mp3');
-  //}
-  //else {
-  //  song = new Audio(str);
-  //  song.play();
-    //reader.readAsDataURL(song);
-  //}
-  song = loadSound('../music/ShakeItOff.mp3');
+//   //var str = localStorage.getItem("song");
+//   //if (items === undefined || items === null || items.length === 0)
+//   //{
+//   //  song = loadSound('../music/ShakeItOff.mp3');
+//   //}
+//   //else {
+//   //  song = new Audio(str);
+//   //  song.play();
+//     //reader.readAsDataURL(song);
+//   //}
+  song = loadSound('../music/one_dance.mp3');
 }
 
 function setup() {
-    var cnv = createCanvas(windowWidth, windowHeight);
-    cnv.style('display', 'block');
-    colorMode(HSB); // gradient 
-    noFill();
-    strokeCap(ROUND);
-
-    // buttton = createButton('Toggle Play');
-    // buttton.mousePressed(toggleSong);
-    fft = new p5.FFT();
-    amplitude = new p5.Amplitude();
-    number = 100;
-
-
-    song.play();
-    // space_between_lines = (width-2) / 128;
+  createCanvas(windowWidth, windowHeight);
+  angleMode(DEGREES)
+  colorMode(HSB);
+  rectMode(CENTER)
+  fft = new p5.FFT(0.9,512)
+  song.play()
 }
-
 // function windowResized() {
 //   resizeCanvas(windowWidth, windowHeight);
 // }
 
 
 function draw() {
-    let spectrum = fft.analyze();
-    let angle = 0;
-    let radius = height * 3 / 12;
-    magnitude = radius * 20;
+  var spectrum = fft.analyze()
+  translate(width/2, height/2)
+  colorMode(RGB);
+  fill(33)
+  noStroke()
+  rect(0, 0, width, height)
+  colorMode(HSB);
 
-    beginShape();
-    translate(width/2, height/2);
-    
-    // console.log(spectrum.length)
-    for (let i = 0; i < number; i++) { // += 2 for gap
-        var freq = spectrum[i*2];
-        let r = sq(map(freq, 0, 255, 0, 1));
-        let level = amplitude.getLevel();
-        let x = radius * sin(angle);
-        let y = radius * cos(angle);
-        //credit: FreddieRa
-        modifier = (1 + r/2) * (1+level/10); 
-        
-        x2 = x * modifier;
-        y2 = y * modifier;
-
-        stroke(i*360/number,360,360); //fill(i,255,255);
-        strokeWeight(7);
-        line(x, y, x2, y2);
-        angle += TWO_PI/number;
-    }
-    endShape();
-
+  strokeWeight(5)
+  
+  for(var i = 0; i < spectrum.length; i+=5) {
+      var angle = map(i,1,spectrum.length,0,360)-90
+      var amp2 = spectrum[i]
+      var r = map(amp2, 0, 256, 80, 250)
+      var x = (r + 50) * sin(angle);
+      var y = (r + 50) * cos(angle);
+      
+      line(0,0,x,y);
+      stroke(i/1.6,200,200);
+  }
+  noStroke();
+  colorMode(RGB);
+  fill(33)
+  circle(0,0,250)
 }
 

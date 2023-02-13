@@ -5,9 +5,10 @@ function keyPressed() {
     if(song.isPlaying()) {
       noFill();
       song.pause();
+      noLoop();
     } else {
       song.play();
-      loop()
+      loop();
     }
   }
 }
@@ -16,10 +17,10 @@ function keyPressed() {
 function mouseClicked() { // possibly change to space bar instead later
   if(song.isPlaying()) {
     song.pause();
-    //noLoop()
+    noLoop()
   } else {
     song.play();
-    //loop()
+    loop()
   }
 }
 
