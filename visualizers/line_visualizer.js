@@ -63,9 +63,9 @@ function preload() {
 //   song.jump(song.currentTime() -3);
 // }
 
-function preload() {
-  song = loadSound('../music/everglow.mp3');
-}
+// function preload() {
+//   song = loadSound('../music/everglow.mp3');
+// }
 
 function setup() {
   var cnv = createCanvas(windowWidth, windowHeight-100);
