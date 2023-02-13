@@ -20,7 +20,7 @@ function preload() {
 //   //  song.play();
 //     //reader.readAsDataURL(song);
 //   //}
-  song = loadSound('../music/one_dance.mp3');
+  song = loadSound('../music/ShakeItOff.mp3');
 }
 
 function setup() {

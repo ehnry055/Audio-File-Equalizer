@@ -13,7 +13,7 @@ function keyPressed() {
 }
 
 function preload() {
-  song = loadSound(sessionStorage.getItem("song"));
+  song = loadSound('../music/ShakeItOff.mp3');
 }
 
 function setup() {
